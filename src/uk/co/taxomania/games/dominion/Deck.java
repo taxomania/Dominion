@@ -3,12 +3,31 @@ package uk.co.taxomania.games.dominion;
 import java.util.ArrayList;
 
 import uk.co.taxomania.games.dominion.card.Card;
+import uk.co.taxomania.games.dominion.card.CopperTreasureCard;
+import uk.co.taxomania.games.dominion.card.EstateVictoryCard;
 
 public class Deck {
-    private final ArrayList<Card> deck = new ArrayList<Card>(5);
+    private static final int INITIAL_DECK_SIZE = 10;
 
-    public Deck(/*Need to give set of cards first?*/){
+    private final ArrayList<Card> deck = 
+        new ArrayList<Card>(INITIAL_DECK_SIZE);
+
+    private final CardList possibleCards;
+
+    public Deck(){
+        this(CardList.getRandomCardList()); // STUB
     } // Deck()
+
+    public Deck(final CardList cards){
+        possibleCards = cards;
+        for (int i=0; i < 7; i++){
+            deck.add(new CopperTreasureCard());
+        } // for
+        for (int i=0; i < 3; i++){
+            deck.add(new EstateVictoryCard());
+        } // for
+        deck.shuffle();
+    } // Deck(CardList)
 
     public synchronized boolean addCard(final Card card){
         return deck.add(card);
@@ -17,6 +36,10 @@ public class Deck {
     public synchronized boolean trashCard(final Card card){
         return deck.remove(card);
     } // removeCard(Card)
+
+    public synchronized void shuffle(){
+        // shuffle deck
+    } // shuffle()
 
     public boolean contains(final Card card) {
         return deck.contains(card);
@@ -34,5 +57,8 @@ public class Deck {
         } // for
     } // get(Card)
     
+    public ArrayList<Card> newHand(){
+    } // newHand()
+
 } // class Deck
 
