@@ -3,8 +3,8 @@ package uk.co.taxomania.games.dominion.card;
 public abstract class VictoryCard extends Card {
 	private final int victoryPoints;
 
-    public VictoryCard(final String imgPath, final int cost, final int victoryPoints){
-        super(imgPath, cost);
+    public VictoryCard(final String name, final String imgPath, final int cost, final int victoryPoints){
+        super(name, imgPath, cost);
 		this.victoryPoints = victoryPoints;
     } // VictoryCard(String)
 

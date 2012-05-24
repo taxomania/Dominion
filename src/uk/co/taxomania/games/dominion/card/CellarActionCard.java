@@ -3,7 +3,7 @@ package uk.co.taxomania.games.dominion.card;
 public final class CellarActionCard extends ActionCard {
 
     public CellarActionCard(){
-        super("Path/to/file", 2);
+        super("Cellar", "Path/to/file", 2);
     } // CellarActionCard()
 
 	@Override
